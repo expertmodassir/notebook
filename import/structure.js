@@ -11,8 +11,8 @@ function structure() {
                 <i style="width:20px;height:20px;background-repeat:no-repeat;background-size:100%;background-position:center;" class="editorlogo"></i>
               </div>
             </li>
-            <li class="list-opt">
-              <label for="File"><div class="__notebook-option" tabindex="1">File</div></label>
+            <li class="list-opt file-opt">
+              <label for="File"><div class="__notebook-option fo" tabindex="1">File</div></label>
               <input type="checkbox" name="ctrltogglenav" id="File" class="btoggle">
               <div class="__notebook-toggle">
                 <div class="__toggle-content" style="margin-left:1px;">
@@ -27,6 +27,10 @@ function structure() {
                   <ul>
                     <li class="print"><div class="__toggle-option">Page setup</div></li>
                     <li class="print"><div class="__toggle-option">Print</div><div class="shortcut">Ctrl+P</div></li>
+                  </ul>
+                  <ul>
+                    <li class="download disabled"><div class="__toggle-option">Download file</div><div class="shortcut">Ctrl+D</div></li>
+                    <li class="clear-win disabled"><div class="__toggle-option">Clear window</div><div class="shortcut">Ctrl+Win</div></li>
                   </ul>
                 </div>
               </div>

@@ -1,6 +1,8 @@
+import { checkActiveDownload } from "../exports/multiTaskHandler";
 import textBackups from "../exports/textBackups";
 import { print } from "../components/print";
 import { setCounters } from "../import/insertLine";
+
 function keyboardShortcuts() {
   var isShiftKey=false;
   var isAltKey = false;
@@ -44,16 +46,19 @@ function keyboardShortcuts() {
       return;
     }
 
-    _KBDefZoom(event), _KBGoto(event), _KBReplace(event), _KBFind(event);
+    _KBDefZoom(event), _KBGoto(event), _KBReplace(event), _KBDownload(event), _KBClear(event);
     _KBnew(event), _KBprint(event), _KBopen(event), _KBsave(event), _KBsaveAll(event), _KBUndo(event);
+  }
+  function _KBClear(event) {
+    if (isCtrlKey && event.keyCode===91) {
+      checkActiveDownload();
+      $(".clear-win").not(".disabled").click(), event.preventDefault();
+    }
   }
   function _KBReplace(event) {
     isCtrlKey &&
       (event.keyCode===70 && $(".find").click() && event.preventDefault()),
       (event.keyCode===72 && $(".replace").click() && event.preventDefault());
-  }
-  function _KBFind(event) {
-    
   }
   function _KBFindNextPrev(event, Shift) {
     if (Shift) {
@@ -65,6 +70,12 @@ function keyboardShortcuts() {
     }
     !Shift && event.keyCode===114 && ($(".find-next").click(), event.preventDefault());
   }
+  function _KBDownload(event) {
+    if (isCtrlKey && event.keyCode===68) {
+      checkActiveDownload();
+      $(".download").not(".disabled").click(), event.preventDefault()
+    }
+  }
   function _KBGoto(event) {
     isCtrlKey && event.keyCode===71 && ($(".goto").click(), event.preventDefault());
   }
@@ -72,7 +83,10 @@ function keyboardShortcuts() {
     isCtrlKey && event.keyCode===48 && ($(".default-zoom").click());
   }
   function _KBUndo(event) {
-    isCtrlKey && event.keyCode===90 && textBackups.text === $(".line").text() && event.preventDefault();
+    if (isCtrlKey && event.keyCode===90) {
+      window.isUnod=true;
+      textBackups.text === $(".line").text() && (event.preventDefault());
+    }
   }
   function _KBsaveAll(event) {
     isCtrlKey && isAltKey && event.keyCode===83 && ($(".s-save").click(), event.preventDefault());

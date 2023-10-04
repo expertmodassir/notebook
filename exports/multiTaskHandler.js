@@ -111,6 +111,19 @@ function multiTaskHandler() {
   $(".s-edit").click(function() {
     editOptionsEnableDisable(this);
   });
+  $(".file-opt").click(checkActiveDownload);
+}
+
+function checkActiveDownload() {
+  var hasText = $(".line").text() && $(".line").text() !== " ";
+  var hasFile = $("body").attr("data-file-opened");
+  var hasType = $("body").attr("data-file-type");
+  var cHandle = hasFile && hasType ? "remove" : "add";
+  $(".download, .clear-win")[cHandle + "Class"]("disabled");
+
+  hasText ?
+  $(".clear-win").removeClass("disabled") : $(".clear-win").addClass("disabled");
+  return {File: hasFile, type: hasType};
 }
 
 function editOptionsEnableDisable(items) {
@@ -149,4 +162,4 @@ function enabledDisabledPastOpt(isSaveLocal, setEmpty) {
 }
 
 export default multiTaskHandler;
-export { hidePopupWithEase, setUndoAtClickHandler, setUndoable, editOptionsEnableDisable };
+export { hidePopupWithEase, setUndoAtClickHandler, setUndoable, editOptionsEnableDisable, checkActiveDownload };

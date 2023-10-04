@@ -31,6 +31,7 @@ function fopener() {
         $(".fetching-popup").remove();
         /* clear Undo data when open new file data */
         window.sessionStorage.removeItem("undoBackup");
+        $("#fopener").val("");
     });
   });
 }

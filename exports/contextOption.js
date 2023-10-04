@@ -44,7 +44,7 @@ function cbContext() {
 
 export default function contextOption() {
   readingOrder();
-  $(document).on("mousedown pointerdown visibilitychange resize", function(e) {
+  $(document).on("mousedown visibilitychange resize", function(e) {
 
     if ($(e.target).parents(".tsd-list").length || $(e.target).is(".tsd-list")) {
       return;

@@ -4,6 +4,7 @@ import contextStatusBar from '../exports/contextStatusBar';
 import onlineOffline from './onlineOffline';
 import clickToZoomHandler from './ctozoom';
 import previewPageContent from './preveiw';
+import download from '../exports/download';
 import settings from './settings';
 import NBSinit from './NBSinit';
 import render from './render';
@@ -65,6 +66,7 @@ render(
   insertDate,
   Undo,
   multiTaskHandler,
+  download,
   alertSaveChanges,
   findReplace
 );

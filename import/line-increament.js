@@ -25,6 +25,16 @@ function lineIncrement() {
       window.pasteMode=true;
       return;
     }
+    if (window.isUnod) {
+      window.pasteMode=true;
+      window.isPaste=true;
+      startIncreament($(".line").length, originalHeight, true);
+      adjustCounter();
+      window.isPaste=false;
+      window.isUnod=false;
+      window.pasteMode=false;
+      return;
+    }
     var border = $(".line").css("border", true);
     !window.activeFile && setDefaultFile();
     var editorHeight = $(this).outerHeight();

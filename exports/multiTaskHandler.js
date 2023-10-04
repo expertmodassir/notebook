@@ -111,18 +111,20 @@ function multiTaskHandler() {
   $(".s-edit").click(function() {
     editOptionsEnableDisable(this);
   });
-  $(".file-opt").click(checkActiveDownload);
+  $(".file-opt").click(function() {
+    checkActiveDownload();
+  });
 }
 
-function checkActiveDownload() {
+function checkActiveDownload(clearWin, download) {
   var hasText = $(".line").text() && $(".line").text() !== " ";
   var hasFile = $("body").attr("data-file-opened");
   var hasType = $("body").attr("data-file-type");
   var cHandle = hasFile && hasType ? "remove" : "add";
-  $(".download, .clear-win")[cHandle + "Class"]("disabled");
+  $((download + clearWin) || ".download, .clear-win")[cHandle + "Class"]("disabled");
 
   hasText ?
-  $(".clear-win").removeClass("disabled") : $(".clear-win").addClass("disabled");
+  $(clearWin || ".clear-win").removeClass("disabled") : $(".clear-win").addClass("disabled");
   return {File: hasFile, type: hasType};
 }
 

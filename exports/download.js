@@ -12,6 +12,7 @@ function resetActivity() {
   SBLogic();
   $(".ln, .col").text(1);
   $(".extension").text("TXT");
+  $(".counters span:first").css("opacity", 1);
   $("body")
     .attr("data-file-type", "txt").attr("data-file-exists", false) .removeAttr("data-file-opened");
 }

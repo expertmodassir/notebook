@@ -68,6 +68,22 @@ export default function contextToggle() {
             </div>
             <div class="ctx-text">Select all</div>
           </li>
+          <li class="tsd-list disabled cfr-download auto-fire" data-target="download">
+            <div class="ctx-icon">
+              <svg width="20" height="20" aria-hidden="true" fill="none" viewBox="0 0 20 19">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 15h.01M4 12H2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-3M9.5 1v10.93m4-3.93-4 4-4-4"/>
+              </svg>
+            </div>
+            <div class="ctx-text">Download</div>
+          </li>
+          <li class="tsd-list cfr-clear-win disabled auto-fire" data-target="clear-win">
+            <div class="ctx-icon">
+              <svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20" focusable="false">
+                <g><path d="M14.97 16.95 10 13.87V7h2v5.76l4.03 2.49-1.06 1.7zM22 12c0 5.51-4.49 10-10 10S2 17.51 2 12h1c0 4.96 4.04 9 9 9s9-4.04 9-9-4.04-9-9-9C8.81 3 5.92 4.64 4.28 7.38c-.11.18-.22.37-.31.56L3.94 8H8v1H1.96V3h1v4.74c.04-.09.07-.17.11-.25.11-.22.23-.42.35-.63C5.22 3.86 8.51 2 12 2c5.51 0 10 4.49 10 10z"></path></g>
+              </svg>
+            </div>
+            <div class="ctx-text">Clear window</div>
+          </li>
           <li class="tsd-list cfr-rtl-rorder">
             <div class="ctx-icon">
               <div style="width:22px;height:22px;display:flex;justify-content:center;align-items:center;">

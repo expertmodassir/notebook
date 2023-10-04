@@ -20,6 +20,8 @@ function lineIncrement() {
   window.originalHeight=originalHeight;
 
   $(".writable-area").on("input paste", function(e) {
+    e.type=="input" && !window.activeFile && setDefaultFile();
+    
     /* Handle paste mode return executation */
     if (e.type==="paste" || window.pasteMode) {
       window.pasteMode=true;
@@ -36,7 +38,6 @@ function lineIncrement() {
       return;
     }
     var border = $(".line").css("border", true);
-    !window.activeFile && setDefaultFile();
     var editorHeight = $(this).outerHeight();
     var fullHeight = this.scrollHeight;
     var hasData = $(this).children().length;

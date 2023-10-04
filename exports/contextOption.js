@@ -1,7 +1,8 @@
-import contextToggle from "../templates/contextToggle";
+import { checkActiveDownload } from "./multiTaskHandler";
 import render from "../import/render";
 import globals from "../import/globals";
 import { setUndoable } from "./multiTaskHandler";
+import contextToggle from "../templates/contextToggle";
 
 function readingOrder(dir) {
   var readingOrder = window.sessionStorage.getItem("readingOrder");
@@ -19,6 +20,7 @@ function adjusted(elements) {
 }
 
 function cbContext() {
+  checkActiveDownload(".cfr-clear-win", ".cfr-download,");
   $(".cfr-undo")[setUndoable() + "Class"]("disabled");
   if (window.getSelection().toString()) {
     $(".rsd-slag").removeClass("disabled");
@@ -44,7 +46,7 @@ function cbContext() {
 
 export default function contextOption() {
   readingOrder();
-  $(document).on("mousedown visibilitychange resize", function(e) {
+  $(document).on("mousedown pointerdown visibilitychange resize", function(e) {
 
     if ($(e.target).parents(".tsd-list").length || $(e.target).is(".tsd-list")) {
       return;
